@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Comercial Ribeiro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ffd200">
+
+  <style>
+    body{
+      margin:0;
+      font-family:Arial,sans-serif;
+      background:#f4f4f4;
+    }
+
+    /* TOPO */
+    header{
+      background:#ffd200;
+      padding:15px;
+      text-align:center;
+      border-bottom:4px solid #111;
+    }
+    header h1{
+      color:#111;
+      margin:0;
+      font-size:20px;
+    }
+    header small{
+      display:block;
+      margin-top:4px;
+      font-size:12px;
+      color:#333;
+    }
+
+    /* BUSCA */
+    .search-box{
+      padding:10px;
+      background:#fff;
+    }
+    .search-box input{
+      width:100%;
+      padding:10px;
+      font-size:16px;
+      border-radius:6px;
+      border:1px solid #ccc;
+    }
+
+    /* CATEGORIAS */
+    #categorias{
+      display:flex;
+      gap:8px;
+      padding:10px;
+      overflow-x:auto;
+      background:#fff;
+    }
+    #categorias button{
+      background:#111;
+      color:#ffd200;
+      border:none;
+      padding:6px 12px;
+      border-radius:20px;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+
+    /* CATÁLOGO */
+    .catalogo{
+      padding:10px;
+    }
+    .produto{
+      background:#fff;
+      display:flex;
+      align-items:center;
+      padding:10px;
+      margin-bottom:10px;
+      border-radius:8px;
+      box-shadow:0 2px 5px rgba(0,0,0,.08);
+    }
+    .produto img{
+      width:80px;
+      height:80px;
+      border-radius:8px;
+      object-fit:cover;
+      margin-right:10px;
+    }
+    .produto-info h3{
+      margin:0;
+      font-size:16px;
+      color:#111;
+    }
+    .produto-info p{
+      margin:5px 0 0;
+      color:#0a7a2f;
+      font-weight:bold;
+    }
+    .produto button{
+      margin-left:auto;
+      background:#111;
+      color:#ffd200;
+      border:none;
+      padding:8px 12px;
+      border-radius:6px;
+      cursor:pointer;
+    }
+
+    /* CARRINHO */
+    #carrinho-container{
+      background:#fff;
+      padding:10px;
+      margin:10px;
+      border-radius:8px;
+      box-shadow:0 2px 5px rgba(0,0,0,.1);
+      display:none;
+    }
+
+    .carrinho-item{
+      display:flex;
+      justify-content:space-between;
+      margin:5px 0;
+    }
+
+    #dados-cliente input{
+      width:100%;
+      padding:8px;
+      margin-top:8px;
+      border-radius:6px;
+      border:1px solid #ccc;
+    }
+
+    #dados-cliente button{
+      width:100%;
+      margin-top:8px;
+      background:#111;
+      color:#ffd200;
+      border:none;
+      padding:10px;
+      border-radius:6px;
+      cursor:pointer;
+    }
+
+    #btnFinalizar{
+      width:100%;
+      margin-top:10px;
+      padding:12px;
+      background:#0a7a2f;
+      color:#fff;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:16px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🛒 Comercial Ribeiro</h1>
+  <small>Rua Francisco Antunes da Silva Macedo • Santa Fé</small>
+</header>
+
+<div class="search-box">
+  <input id="pesquisa" placeholder="🔍 Pesquisar produtos..." onkeyup="filtrarProdutos()">
+</div>
+
+<div id="categorias"></div>
+
+<div id="catalogo" class="catalogo"></div>
+
+<div id="carrinho-container">
+  <h2>🛍️ Carrinho</h2>
+  <div id="carrinho-itens"></div>
+  <strong>Total: R$ <span id="total">0.00</span></strong>
+
+  <div id="dados-cliente">
+    <input id="clienteNome" placeholder="Seu nome *">
+    <input id="clienteEndereco" placeholder="Endereço (opcional)">
+    <button type="button" id="btnLocalizacao">📍 Usar minha localização</button>
+  </div>
+  
+  <button id="btnFinalizar">Finalizar Pedido</button>
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>

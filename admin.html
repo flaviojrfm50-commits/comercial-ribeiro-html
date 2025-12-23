@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Admin • Comercial Ribeiro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f4f4f4;
+}
+
+/* TOPO */
+header{
+  background:#ffd200;
+  padding:15px;
+  text-align:center;
+  border-bottom:4px solid #111;
+}
+header h1{
+  color:#111;
+  margin:0;
+  font-size:20px;
+}
+header small{
+  display:block;
+  margin-top:4px;
+  font-size:12px;
+  color:#333;
+}
+
+/* CAIXAS */
+.box{
+  background:#fff;
+  margin:15px;
+  padding:15px;
+  border-radius:10px;
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
+}
+
+/* INPUTS */
+input,select,button{
+  width:100%;
+  padding:10px;
+  margin-top:8px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  font-size:14px;
+}
+
+/* BOTÕES */
+button{
+  background:#111;
+  color:#ffd200;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+}
+button:hover{opacity:.9}
+
+/* BOTÃO SAIR */
+button[onclick="logout()"]{
+  background:#e53935;
+  color:#fff;
+}
+
+/* LISTAS COM SCROLL (ANTI-TRAVAMENTO) */
+#listaProdutos,
+#listaPedidos{
+  max-height:300px;
+  overflow-y:auto;
+  padding-right:5px;
+}
+
+/* PRODUTOS */
+.produtoItem{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  background:#fff;
+  padding:10px;
+  margin-top:10px;
+  border-radius:8px;
+  box-shadow:0 2px 5px rgba(0,0,0,.08);
+}
+.produtoItem img{
+  width:50px;
+  height:50px;
+  object-fit:cover;
+  border-radius:6px;
+}
+.produtoInfo{flex:1}
+
+/* MENSAGENS */
+.msg{
+  color:#1b8f3a;
+  margin-top:10px;
+  font-size:14px;
+}
+
+hr{margin:15px 0}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🛒 Comercial Ribeiro</h1>
+  <small>Rua Francisco Antunes da Silva Macedo • Santa Fé</small>
+</header>
+
+<!-- 🔐 LOGIN -->
+<div class="box" id="loginBox">
+  <h3>Login do Admin</h3>
+  <input id="loginUser" placeholder="Usuário">
+  <input id="loginPass" type="password" placeholder="Senha">
+  <button onclick="login()">Entrar</button>
+  <p id="loginMsg"></p>
+</div>
+
+<!-- 🛠️ PAINEL -->
+<div id="adminBox" style="display:none">
+
+  <div class="box">
+    <strong>Logado como:</strong> <span id="adminNome"></span>
+    <button onclick="logout()" style="margin-top:10px">Sair</button>
+  </div>
+
+  <!-- ➕ PRODUTO -->
+  <div class="box">
+    <h3>Adicionar / Editar Produto</h3>
+
+    <form id="formProduto">
+      <input id="nome" placeholder="Nome do produto" required>
+      <input id="preco" type="number" step="0.01" placeholder="Preço" required>
+
+      <label>Categoria</label>
+      <select id="categoriaSelect"></select>
+      <input id="novaCategoria" placeholder="Ou nova categoria">
+
+      <label>Imagem (PC / Câmera)</label>
+      <input type="file" id="imagemFile" accept="image/*" capture="environment">
+
+      <input id="imagemURL" placeholder="Ou URL da imagem">
+
+      <button type="submit" id="btnSalvar">Salvar Produto</button>
+      <p class="msg" id="msg"></p>
+    </form>
+  </div>
+
+  <!-- 🔍 BUSCA -->
+  <div class="box">
+    <input id="busca" placeholder="🔍 Buscar produto...">
+  </div>
+
+  <!-- 📦 LISTA -->
+  <div class="box">
+    <h3>Produtos cadastrados</h3>
+    <div id="listaProdutos"></div>
+  </div>
+
+  <!-- 📋 PEDIDOS -->
+  <div class="box">
+    <h3>📋 Pedidos</h3>
+    <div id="listaPedidos"></div>
+  </div>
+
+</div>
+
+<script type="module" src="admin.js"></script>
+</body>
+</html>

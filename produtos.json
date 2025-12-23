@@ -1,0 +1,62 @@
+[
+  {
+    "nome": "Castanha do Pará 1Kg",
+    "preco": 42.90,
+    "categoria": "Mercearia",
+    "imagem": "imagens/Castanha do Pará.jpg"
+  },
+  {
+    "nome": "Uva Passa Preta 500g",
+    "preco": 13.50,
+    "categoria": "Mercearia",
+    "imagem": "https://example.com/uva-passa-preta.jpg"
+  },
+  {
+    "nome": "Pasta de Amendoim 500g",
+    "preco": 13.90,
+    "categoria": "Mercearia",
+    "imagem": "imagens/Pasta de Amendoim.jpg"
+  },
+  {
+    "nome": "Suco de Laranja 1L",
+    "preco": 7.50,
+    "categoria": "Bebidas",
+    "imagem": "imagens/Suco de Laranja.jpg"
+  },
+  {
+    "nome": "Refrigerante Cola 2L",
+    "preco": 9.90,
+    "categoria": "Bebidas",
+    "imagem": "https://example.com/refrigerante-cola.jpg"
+  },
+  {
+    "nome": "Leite Integral 1L",
+    "preco": 4.80,
+    "categoria": "Frios & Laticínios",
+    "imagem": "imagens/Leite Integral.jpg"
+  },
+  {
+    "nome": "Queijo Mussarela 500g",
+    "preco": 18.50,
+    "categoria": "Frios & Laticínios",
+    "imagem": "https://example.com/queijo-mussarela.jpg"
+  },
+  {
+    "nome": "Maçã Fuji 1Kg",
+    "preco": 9.90,
+    "categoria": "Hortifruti",
+    "imagem": "imagens/Maca Fuji.jpg"
+  },
+  {
+    "nome": "Banana Prata 1Kg",
+    "preco": 5.50,
+    "categoria": "Hortifruti",
+    "imagem": "https://example.com/banana-prata.jpg"
+  },
+  {
+    "nome": "Pão Francês 500g",
+    "preco": 6.50,
+    "categoria": "Padaria",
+    "imagem": "imagens/Pao Frances.jpg"
+  }
+]

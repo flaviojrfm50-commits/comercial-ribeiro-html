@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Admin - Mercado</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family: Arial, sans-serif;
+  background:#f4f6f4;
+  min-height:100vh;
+}
+
+/* TOPO */
+header{
+  background:linear-gradient(90deg,#1b8f3a,#e53935);
+  padding:15px;
+  text-align:center;
+  color:#fff;
+}
+header h1{
+  margin:0;
+  font-size:22px;
+}
+
+/* CONTAINER */
+.container{
+  max-width:520px;
+  margin:20px auto;
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+/* TITULOS */
+h2,h3{
+  color:#1b8f3a;
+  margin-bottom:10px;
+}
+
+/* INPUTS */
+input, select{
+  width:100%;
+  padding:10px;
+  margin-top:8px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:15px;
+}
+
+/* BOTÕES */
+button{
+  width:100%;
+  margin-top:12px;
+  padding:12px;
+  background:#1b8f3a;
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  font-size:16px;
+  cursor:pointer;
+  transition:.2s;
+}
+button:hover{
+  background:#157531;
+}
+
+button.sair{
+  background:#e53935;
+}
+button.sair:hover{
+  background:#c62828;
+}
+
+/* MENSAGENS */
+.msg{
+  margin-top:10px;
+  color:#1b8f3a;
+  font-weight:bold;
+}
+
+/* PRODUTOS */
+.produtoItem{
+  background:#f9f9f9;
+  padding:10px;
+  margin-top:10px;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  box-shadow:0 2px 5px rgba(0,0,0,.08);
+}
+.produtoItem img{
+  width:55px;
+  height:55px;
+  object-fit:cover;
+  border-radius:8px;
+}
+.produtoInfo{
+  flex:1;
+  font-size:14px;
+}
+
+/* BUSCA */
+#busca{
+  margin-top:15px;
+}
+
+/* DIVISOR */
+hr{
+  margin:20px 0;
+  border:none;
+  height:1px;
+  background:#ddd;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- 🔐 LOGIN -->
+<div id="loginBox">
+  <h2>Login Admin</h2>
+  <input id="loginUser" placeholder="Usuário">
+  <input id="loginPass" type="password" placeholder="Senha">
+  <button onclick="login()">Entrar</button>
+  <p id="loginMsg"></p>
+</div>
+
+<!-- 🛠️ ADMIN -->
+<div id="adminBox" style="display:none">
+  <h2>Admin — <span id="adminNome"></span></h2>
+  <button onclick="logout()">Sair</button>
+
+  <hr>
+
+  <!-- ➕ PRODUTO -->
+  <form id="formProduto">
+    <h3>Adicionar Produto</h3>
+    <input id="nome" placeholder="Nome">
+    <input id="preco" type="number" step="0.01" placeholder="Preço">
+    <input id="categoria" placeholder="Categoria">
+    <input type="file" id="imagemFile">
+    <input id="imagemURL" placeholder="URL da imagem">
+    <button type="submit">Salvar Produto</button>
+  </form>
+
+  <p class="msg" id="msg"></p>
+
+  <hr>
+
+  <!-- 🔍 BUSCA -->
+  <input id="busca" placeholder="Buscar produto..." onkeyup="filtrarLista()">
+
+  <!-- 📦 LISTA -->
+  <div id="listaProdutos"></div>
+
+  <hr>
+
+  <!-- 👤 CRIAR ADMIN -->
+  <div id="criarAdminBox">
+    <h3>Criar Admin</h3>
+    <input id="novoUsuario" placeholder="Usuário">
+    <input id="novaSenha" type="password" placeholder="Senha">
+    <select id="novaPermissao">
+      <option value="visualizar">Visualizar</option>
+      <option value="editar">Editar</option>
+    </select>
+    <button onclick="criarAdmin()">Criar Admin</button>
+    <p id="adminMsg"></p>
+  </div>
+</div>
+
+<script type="module" src="admin.js"></script>
+</body>
+</html>
