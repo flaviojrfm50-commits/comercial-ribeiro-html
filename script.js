@@ -7,7 +7,7 @@ const supabase = createClient(
 );
 
 /* ================= CONFIG ================= */
-const numeroWhatsApp = "558981089318"; // SOMENTE NÚMEROS
+const numeroWhatsApp = "558981282523"; // SOMENTE NÚMEROS
 
 /* ================= ESTADO ================= */
 let produtos = [];
@@ -193,3 +193,4 @@ document.getElementById("btnFinalizar").onclick = () => {
   localStorage.removeItem("carrinho");
   atualizarCarrinho();
 };
+
